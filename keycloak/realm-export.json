@@ -1,0 +1,32 @@
+{
+  "realm": "bancoxyz",
+  "enabled": true,
+  "accessTokenLifespan": 300,
+  "roles": {
+    "realm": [
+      { "name": "API_USER", "description": "Rol para consumir las APIs de cuentas-service y eventos-service" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "cuentas-client",
+      "name": "Cliente OAuth2 para cuentas-service y eventos-service",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "cuentas-secret",
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "defaultClientScopes": [ "roles" ]
+    }
+  ],
+  "users": [
+    {
+      "username": "service-account-cuentas-client",
+      "enabled": true,
+      "serviceAccountClientId": "cuentas-client",
+      "realmRoles": [ "API_USER" ]
+    }
+  ]
+}
